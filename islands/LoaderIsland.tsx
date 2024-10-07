@@ -1,6 +1,8 @@
 import { useEffect, useState } from "preact/hooks";
 import ContextAwareNAMILoader from "../components/ContextAwareNAMILoader.tsx";
-import HomeContent from "./HomeContent.tsx";
+// import HomeContent from "./HomeContent.tsx";
+import PortfolioHome from "./PortfolioHome.tsx";
+
 
 export default function LoaderIsland() {
   const [loading, setLoading] = useState(true);
@@ -50,7 +52,7 @@ export default function LoaderIsland() {
         </div>
       )}
       <div className={`transition-opacity duration-1000 ${showLoader ? 'opacity-0' : 'opacity-100'}`}>
-        <HomeContent />
+        <PortfolioHome />
       </div>
     </div>
   );

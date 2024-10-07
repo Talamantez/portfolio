@@ -6,9 +6,7 @@ export default function Home() {
 
   return (
     <div>
-      <Header active="home" />
       <LoaderIsland />
-      <Footer />
     </div>
   );
 }

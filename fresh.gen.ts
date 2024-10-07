@@ -19,12 +19,13 @@ import * as $LoaderIsland from "./islands/LoaderIsland.tsx";
 import * as $PdfPreview from "./islands/PdfPreview.tsx";
 import * as $PdfPreviewChapterEditor from "./islands/PdfPreviewChapterEditor.tsx";
 import * as $PdfPreviewSidebar from "./islands/PdfPreviewSidebar.tsx";
+import * as $PortfolioHome from "./islands/PortfolioHome.tsx";
 import * as $SearchBar from "./islands/SearchBar.tsx";
 import * as $SearchResults from "./islands/SearchResults.tsx";
 import * as $Sections from "./islands/Sections.tsx";
 import * as $printAllChapters from "./islands/printAllChapters.tsx";
 import * as $useSearch from "./islands/useSearch.tsx";
-import { type Manifest } from "$fresh/server.ts";
+import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
@@ -47,6 +48,7 @@ const manifest = {
     "./islands/PdfPreview.tsx": $PdfPreview,
     "./islands/PdfPreviewChapterEditor.tsx": $PdfPreviewChapterEditor,
     "./islands/PdfPreviewSidebar.tsx": $PdfPreviewSidebar,
+    "./islands/PortfolioHome.tsx": $PortfolioHome,
     "./islands/SearchBar.tsx": $SearchBar,
     "./islands/SearchResults.tsx": $SearchResults,
     "./islands/Sections.tsx": $Sections,
