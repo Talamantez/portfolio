@@ -88,7 +88,7 @@ export default function ConsciousRobotMarketing() {
                         Empowering Nonprofits with Innovative Tech Solutions
                     </h2>
                     <p class="text-xl mb-8">
-                        We're on a mission to amplify your impact through
+                        Let's amplify your impact through
                         technology
                     </p>
                     <a
@@ -104,8 +104,8 @@ export default function ConsciousRobotMarketing() {
                         About Conscious Robot
                     </h2>
                     <p class="text-lg">
-                        We're a team of tech enthusiasts dedicated to supporting
-                        nonprofits. Our goal is to provide innovative,
+                        Hi, I'm Robert! I'm a developer dedicated to supporting
+                        nonprofits. My goal is to provide innovative,
                         user-friendly solutions that help you focus on what
                         matters most - your mission.
                     </p>
