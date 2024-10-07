@@ -1,6 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
-import ContextAwareNAMILoader from "../components/ContextAwareNAMILoader.tsx";
-// import HomeContent from "./HomeContent.tsx";
+import ContextAwareCRLoader from "../components/ContextAwareCRLoader.tsx";
 import PortfolioHome from "./PortfolioHome.tsx";
 
 
@@ -48,7 +47,7 @@ export default function LoaderIsland() {
     <div className="relative">
       {showLoader && (
         <div className={`fixed inset-0 z-50 transition-opacity duration-1000 ${(!loading && contentReady) ? 'opacity-0' : 'opacity-100'}`}>
-          <ContextAwareNAMILoader context="general" onLoadComplete={handleLoadComplete} />
+          <ContextAwareCRLoader context="general" onLoadComplete={handleLoadComplete} />
         </div>
       )}
       <div className={`transition-opacity duration-1000 ${showLoader ? 'opacity-0' : 'opacity-100'}`}>
