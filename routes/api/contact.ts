@@ -9,25 +9,13 @@ if (!SENDGRID_API_KEY || !TO_EMAIL || !FROM_EMAIL) {
   console.error("Missing required environment variables");
 }
 
-async function sendEmail(name: string, email: string, message: string) {
+async function sendEmail(to: string, subject: string, content: string) {
   const url = "https://api.sendgrid.com/v3/mail/send";
   const data = {
-    personalizations: [
-      {
-        to: [{ email: TO_EMAIL }],
-        subject: "New Contact Form Submission",
-      },
-    ],
+    personalizations: [{ to: [{ email: to }], subject: subject }],
     from: { email: FROM_EMAIL },
-    content: [
-      {
-        type: "text/plain",
-        value: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-      },
-    ],
+    content: [{ type: "text/plain", value: content }],
   };
-
-  console.log("Sending email with data:", JSON.stringify(data));
 
   const response = await fetch(url, {
     method: "POST",
@@ -38,15 +26,12 @@ async function sendEmail(name: string, email: string, message: string) {
     body: JSON.stringify(data),
   });
 
-  const responseText = await response.text();
-  console.log("SendGrid API Response:", response.status, responseText);
-
   if (!response.ok) {
-    throw new Error(`Failed to send email: ${response.status} ${response.statusText}\n${responseText}`);
+    const errorText = await response.text();
+    throw new Error(`Failed to send email: ${response.status} ${response.statusText}\n${errorText}`);
   }
 
-  console.log("Email sent successfully");
-  return responseText;
+  return await response.text();
 }
 
 export const handler: Handlers = {
@@ -57,9 +42,34 @@ export const handler: Handlers = {
 
       console.log('Received contact form submission:', { name, email, message });
 
-      const sendGridResponse = await sendEmail(name, email, message);
+      // Send notification to company
+      await sendEmail(
+        TO_EMAIL,
+        "New Contact Form Submission",
+        `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+      );
 
-      return new Response(JSON.stringify({ success: true, sendGridResponse }), {
+      // Send auto-response to user
+      const autoResponseSubject = "Thank you for contacting Conscious Robot";
+      const autoResponseContent = `Dear ${name},
+
+Thank you for reaching out to Conscious Robot. We have received your message and appreciate your interest in our services.
+
+Our team will review your inquiry and get back to you as soon as possible, typically within 1-2 business days.
+
+Here's a summary of the information you provided:
+Name: ${name}
+Email: ${email}
+Message: ${message}
+
+If you need immediate assistance or have any additional questions, please don't hesitate to reply to this email.
+
+Best regards,
+The Conscious Robot Team`;
+
+      await sendEmail(email, autoResponseSubject, autoResponseContent);
+
+      return new Response(JSON.stringify({ success: true }), {
         headers: { "Content-Type": "application/json" },
       });
     } catch (error) {
