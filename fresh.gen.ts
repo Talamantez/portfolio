@@ -9,7 +9,6 @@ import * as $api_generate_pdf from "./routes/api/generate-pdf.ts";
 import * as $api_imageProcessor from "./routes/api/imageProcessor.ts";
 import * as $api_printAllChapters from "./routes/api/printAllChapters.ts";
 import * as $api_upload from "./routes/api/upload.ts";
-import * as $feedback from "./routes/feedback.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $AddChapter from "./islands/AddChapter.tsx";
 import * as $ChapterControls from "./islands/ChapterControls.tsx";
@@ -37,7 +36,6 @@ const manifest = {
     "./routes/api/imageProcessor.ts": $api_imageProcessor,
     "./routes/api/printAllChapters.ts": $api_printAllChapters,
     "./routes/api/upload.ts": $api_upload,
-    "./routes/feedback.tsx": $feedback,
     "./routes/index.tsx": $index,
   },
   islands: {
