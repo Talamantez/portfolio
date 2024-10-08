@@ -104,8 +104,10 @@ export default function ConsciousRobotMarketing() {
                         About Conscious Robot
                     </h2>
                     <p class="text-lg">
-                        Hi, I'm Robert! I provide innovative,
-                        user-friendly solutions that help you focus on your specific mission. I'm passionate about helping nonprofits achieve reliable scale and speed on your budget. Let's work together to create tech solutions that make a difference!
+                        Hi, I'm Robert! I founded Conscious Robot to help nonprofits expand their reach online. I have over 10 years of experience in software development, and I'm passionate about using technology to drive social change. I believe that every nonprofit deserves access to cutting-edge tech solutions that can help them make a bigger impact. That's why I'm here to help you leverage the power of technology to achieve your mission. 
+                    </p>
+                    <p class="text-lg mt-4">
+                        Let's work together to create tech solutions that make a difference!
                     </p>
                 </section>
 
