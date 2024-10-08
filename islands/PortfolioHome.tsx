@@ -104,10 +104,8 @@ export default function ConsciousRobotMarketing() {
                         About Conscious Robot
                     </h2>
                     <p class="text-lg">
-                        Hi, I'm Robert! I'm a developer dedicated to supporting
-                        nonprofits. My goal is to provide innovative,
-                        user-friendly solutions that help you focus on what
-                        matters most - your mission.
+                        Hi, I'm Robert! I provide innovative,
+                        user-friendly solutions that help you focus on your specific mission. I'm passionate about helping nonprofits achieve reliable scale and speed on your budget. Let's work together to create tech solutions that make a difference!
                     </p>
                 </section>
 
