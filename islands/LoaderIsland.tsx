@@ -36,7 +36,7 @@ export default function LoaderIsland() {
 
   useEffect(() => {
     if (!loading && contentReady) {
-      const fadeOutDuration = 1000; // 1 second fade-out
+      const fadeOutDuration = 1; // 1 second fade-out
       setTimeout(() => {
         setShowLoader(false);
       }, fadeOutDuration);
