@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'KGCastlesCrumbling';
+  src: url('KGCastlesCrumbling.otf') format('opentype'),
+       url('KGCastlesCrumbling.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 file-drop {
   border-radius: 5dvh;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
