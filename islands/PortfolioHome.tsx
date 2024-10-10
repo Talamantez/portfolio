@@ -74,9 +74,9 @@ export default function ConsciousRobotMarketing() {
             </header>
 
             <main class="container mx-auto px-4 py-8">
-                <section id="hero" class="text-center py-12 md:py-16">
+                <section id="hero" class="text-center">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Empowering Nonprofits with Innovative Tech Solutions
+                        Empowering Nonprofits with Smart Web Options
                     </h2>
                     <p class="text-lg md:text-xl mb-8">
                         Amplify your impact with secure, reliable, and
@@ -124,9 +124,8 @@ export default function ConsciousRobotMarketing() {
                                 Apps
                             </h3>
                             <p>
-                                Turn your ideas into reality with our custom web
-                                app development services. We'll build a solution
-                                that meets your unique needs and goals.
+                                Your idea could make a difference. We'll build a solution
+                                that makes it happen.
                             </p>
                         </div>
                     </div>
