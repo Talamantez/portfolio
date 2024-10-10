@@ -6,7 +6,6 @@ import * as $_app from "./routes/_app.tsx";
 import * as $_middleware from "./routes/_middleware.ts";
 import * as $api_contact from "./routes/api/contact.ts";
 import * as $api_generate_pdf from "./routes/api/generate-pdf.ts";
-import * as $api_imageProcessor from "./routes/api/imageProcessor.ts";
 import * as $api_printAllChapters from "./routes/api/printAllChapters.ts";
 import * as $api_upload from "./routes/api/upload.ts";
 import * as $index from "./routes/index.tsx";
@@ -33,7 +32,6 @@ const manifest = {
     "./routes/_middleware.ts": $_middleware,
     "./routes/api/contact.ts": $api_contact,
     "./routes/api/generate-pdf.ts": $api_generate_pdf,
-    "./routes/api/imageProcessor.ts": $api_imageProcessor,
     "./routes/api/printAllChapters.ts": $api_printAllChapters,
     "./routes/api/upload.ts": $api_upload,
     "./routes/index.tsx": $index,

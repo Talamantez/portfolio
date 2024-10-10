@@ -65,8 +65,8 @@ export default function ConsciousRobotMarketing() {
                         <ConsciousRobotLogo />
                     </div>
                     <h1 class="text-3xl md:text-4xl">
-                        <span class="font-KGCastlesCrumbling">conscious </span>
-                        <span class="font-KGCastlesCrumbling font-bold">
+                        <span class="font-KGCastlesCrumbling font-bold">conscious</span>
+                        <span class="font-KGCastlesCrumbling">
                             ROBOT
                         </span>
                     </h1>
@@ -101,6 +101,7 @@ export default function ConsciousRobotMarketing() {
                     </p>
                 </section>
 
+
                 <section id="services" class="my-12">
                     <h2 class="text-2xl md:text-3xl font-bold mb-6">
                         Services
@@ -112,8 +113,8 @@ export default function ConsciousRobotMarketing() {
                             </h3>
                             <p class="mb-4">
                                 Let's get your message out there! We'll help you
-                                create and manage campaigns that drive
-                                clicks and contributions.
+                                create and manage campaigns that drive clicks
+                                and contributions.
                             </p>
                             <p>
                             </p>
@@ -126,60 +127,6 @@ export default function ConsciousRobotMarketing() {
                                 Turn your ideas into reality with our custom web
                                 app development services. We'll build a solution
                                 that meets your unique needs and goals.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-                <section id="value-proposition" class="my-12">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-6">
-                        Why Choose Conscious Robot?
-                    </h2>
-
-                    <div class="space-y-6">
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-xl font-bold mb-2">
-                                Smart Pricing
-                            </h3>
-                            <p class="mb-4">
-                                We offer competitive pricing and flexible
-                                payment options to help you get the most out of
-                                your budget.
-                            </p>
-                            <p>
-                            </p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-xl font-bold mb-2">
-                                Private
-                            </h3>
-                            <p class="mb-4">
-                                Unless explicitly required by your nonprofit, we
-                                don't collect, we don't track, and we don't
-                                store user data. Your privacy and that of your
-                                users are our top priority.
-                            </p>
-                            <p>
-                            </p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-xl font-bold mb-2">
-                                Global
-                            </h3>
-                            <p>
-                                Enhance reliability and speed with our
-                                edge-first approach, ensuring your services are
-                                always available and responsive, even under high
-                                demand.
-                            </p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-xl font-bold mb-2">
-                                Instant
-                            </h3>
-                            <p>
-                                We use push to Github to deploy your updates
-                                instantly. No more waiting for updates to go
-                                live.
                             </p>
                         </div>
                     </div>
@@ -202,6 +149,58 @@ export default function ConsciousRobotMarketing() {
                     >
                         Contact Us Today
                     </a>
+                </section>
+                <section id="value-proposition" class="my-12">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6">
+                        Why Choose Conscious Robot?
+                    </h2>
+
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold mb-2">
+                                Sliding Scale Pricing
+                            </h3>
+                            <p class="mb-4">
+                                We offer flexible pricing to set you up on budget.
+                            </p>
+                            <p>
+                            </p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold mb-2">
+                                Private
+                            </h3>
+                            <p class="mb-4">
+                                Unless explicitly required by your nonprofit, we
+                                don't collect, track, or
+                                store any user data. Your privacy and that of your
+                                users are our top priority.
+                            </p>
+                            <p>
+                            </p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold mb-2">
+                                Available
+                            </h3>
+                            <p>
+                                Enhance reliability and speed with our
+                                edge-first approach, ensuring your services are
+                                always available and responsive, even under high
+                                demand.
+                            </p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold mb-2">
+                                Dynamic
+                            </h3>
+                            <p>
+                                We use push to Github to deploy your updates
+                                instantly. No more waiting for updates to go
+                                live.
+                            </p>
+                        </div>
+                    </div>
                 </section>
 
                 <section id="contact" class="my-12">
