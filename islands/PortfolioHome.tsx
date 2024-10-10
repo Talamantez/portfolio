@@ -66,7 +66,7 @@ export default function ConsciousRobotMarketing() {
                     </div>
                     <h1 class="text-3xl md:text-4xl">
                         <span class="font-KGCastlesCrumbling font-bold">conscious</span>
-                        <span class="font-KGCastlesCrumbling">
+                        <span class="font-KGCastlesCrumbling p-1">
                             ROBOT
                         </span>
                     </h1>
@@ -92,10 +92,10 @@ export default function ConsciousRobotMarketing() {
 
                 <section id="about" class="my-12">
                     <h2 class="text-2xl md:text-3xl font-bold mb-4">
-                        About Conscious Robot
+                        Greetings Humanoid!
                     </h2>
                     <p class="text-base md:text-lg mb-4">
-                        Greetings Humanoid, I'm Robert, the Conscious Robot! I'm
+                        I'm Robert, the Conscious Robot! I'm
                         here to get you robust web solutions and those right
                         quickly!
                     </p>
