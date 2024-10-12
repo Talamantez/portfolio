@@ -1,5 +1,7 @@
 import { useState } from "preact/hooks";
 import ConsciousRobotLogo from "../components/ConsciousRobotLogo.tsx";
+import LightningIcon from "../components/LightningIcon.tsx";
+
 export default function ConsciousRobotMarketing() {
     const [formData, setFormData] = useState({
         name: "",
@@ -60,16 +62,30 @@ export default function ConsciousRobotMarketing() {
     return (
         <div class="bg-gray-100 font-sans">
             <header class="bg-purple-600 text-white p-4">
-                <div class="container mx-auto flex items-center space-x-4">
-                    <div class="w-20 h-10 md:w-24 md:h-24 p-2 rounded-full bg-purple-100 flex items-center justify-center">
+                <div class="container mx-auto flex items-center">
+                    <div class="w-20 mx-0 h-10 md:w-24 md:h-24 p-2 rounded-full bg-purple-100 flex items-center justify-center">
                         <ConsciousRobotLogo />
                     </div>
-                    <h1 class="text-3xl md:text-4xl">
-                        <span class="font-KGCastlesCrumbling font-bold">conscious</span>
-                        <span class="font-KGCastlesCrumbling p-1">
+
+                    <div class="font-KGCastlesCrumbling ">
+                        <h1 class="text-3xl md:text-4xl -mr-1 ml-1 flex items-center justify-center">
+                            conscious
+                        </h1>
+                    </div>
+                    <div>
+                        <LightningIcon
+                            width={30}
+                            height={30}
+                            fill="#FFD700"
+                            stroke="#FFA500"
+                        />
+                    </div>
+
+                    <div class="font-KGCastlesCrumbling">
+                        <h1 class="text-3xl md:text-4xl -ml-1 mr-0 flex items-center justify-center">
                             ROBOT
-                        </span>
-                    </h1>
+                        </h1>
+                    </div>
                 </div>
             </header>
 
@@ -95,12 +111,10 @@ export default function ConsciousRobotMarketing() {
                         Greetings Humanoid!
                     </h2>
                     <p class="text-base md:text-lg mb-4">
-                        I'm Robert, the Conscious Robot! I'm
-                        here to get you robust web solutions and those right
-                        quickly!
+                        I'm Robert, the Conscious Robot! I'm here to get you
+                        robust web solutions and those right quickly!
                     </p>
                 </section>
-
 
                 <section id="services" class="my-12">
                     <h2 class="text-2xl md:text-3xl font-bold mb-6">
@@ -124,8 +138,8 @@ export default function ConsciousRobotMarketing() {
                                 Apps
                             </h3>
                             <p>
-                                Your idea could make a difference. We'll build a solution
-                                that makes it happen.
+                                Your idea could make a difference. We'll build a
+                                solution that makes it happen.
                             </p>
                         </div>
                     </div>
@@ -160,7 +174,8 @@ export default function ConsciousRobotMarketing() {
                                 Sliding Scale Pricing
                             </h3>
                             <p class="mb-4">
-                                We offer flexible pricing to set you up on budget.
+                                We offer flexible pricing to set you up on
+                                budget.
                             </p>
                             <p>
                             </p>
@@ -171,9 +186,9 @@ export default function ConsciousRobotMarketing() {
                             </h3>
                             <p class="mb-4">
                                 Unless explicitly required by your nonprofit, we
-                                don't collect, track, or
-                                store any user data. Your privacy and that of your
-                                users are our top priority.
+                                don't collect, track, or store any user data.
+                                Your privacy and that of your users are our top
+                                priority.
                             </p>
                             <p>
                             </p>
