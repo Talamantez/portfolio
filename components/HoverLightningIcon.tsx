@@ -21,8 +21,8 @@ const HoverLightningIcon = ({ width = 40, height = 40, fill = "#FFD700", stroke 
         height={height}
         style={{
           transition: 'transform .01s',
-          transform: isHovered ? 'skew(-7deg)' : 'skew(0deg)',
-          transformOrigin: 'bottom left'
+          transform: isHovered ? 'skew(-9deg)' : '',
+          transformOrigin:'bottom left',
         }}
       >
         <path

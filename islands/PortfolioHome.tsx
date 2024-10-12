@@ -80,7 +80,7 @@ export default function ConsciousRobotMarketing() {
                     </div>
 
                     <div class="font-KGCastlesCrumbling">
-                        <h1 class="text-3xl md:text-4xl -mr-1 ml-10">
+                        <h1 class="text-3xl md:text-4xl -mr-1 ml-10 ">
                             conscious
                         </h1>
                     </div>
@@ -106,6 +106,8 @@ export default function ConsciousRobotMarketing() {
                     </p>
                     <a
                         href="#contact"
+                        onMouseEnter={() => setIsHeaderHovered(true)}
+                        onMouseLeave={() => setIsHeaderHovered(false)}
                         class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300"
                     >
                         Get Started
