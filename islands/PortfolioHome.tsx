@@ -1,8 +1,14 @@
 import { useState } from "preact/hooks";
 import ConsciousRobotLogo from "../components/ConsciousRobotLogo.tsx";
 import LightningIcon from "../components/LightningIcon.tsx";
+import ItalicLightningIcon from "../components/ItalicLightningIcon.tsx";
+import HoverLightningIcon from "../components/HoverLightningIcon.tsx";
+
+const svgString = ItalicLightningIcon({ width: 50, height: 50 });
+console.log(svgString);
 
 export default function ConsciousRobotMarketing() {
+    const [isHeaderHovered, setIsHeaderHovered] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -61,28 +67,28 @@ export default function ConsciousRobotMarketing() {
 
     return (
         <div class="bg-gray-100 font-sans">
-            <header class="bg-purple-600 text-white p-4">
+            <header
+                class={`bg-purple-600 text-white p-4 transition-all duration-1000 ${
+                    isHeaderHovered ? "italic" : ""
+                }`}
+                onMouseEnter={() => setIsHeaderHovered(true)}
+                onMouseLeave={() => setIsHeaderHovered(false)}
+            >
                 <div class="container mx-auto flex items-center">
                     <div class="w-20 mx-0 h-10 md:w-24 md:h-24 p-2 rounded-full bg-purple-100 flex items-center justify-center">
                         <ConsciousRobotLogo />
                     </div>
 
-                    <div class="font-KGCastlesCrumbling ">
-                        <h1 class="text-3xl md:text-4xl -mr-1 ml-1 flex items-center justify-center">
+                    <div class="font-KGCastlesCrumbling">
+                        <h1 class="text-3xl md:text-4xl -mr-1 ml-10">
                             conscious
                         </h1>
                     </div>
                     <div>
-                        <LightningIcon
-                            width={30}
-                            height={30}
-                            fill="#FFD700"
-                            stroke="#FFA500"
-                        />
+                        <HoverLightningIcon isHovered={isHeaderHovered} />
                     </div>
-
                     <div class="font-KGCastlesCrumbling">
-                        <h1 class="text-3xl md:text-4xl -ml-1 mr-0 flex items-center justify-center">
+                        <h1 class="text-3xl md:text-4xl -ml-1 mr-10">
                             ROBOT
                         </h1>
                     </div>
