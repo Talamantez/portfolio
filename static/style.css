@@ -6,10 +6,3 @@
   font-style: normal;
   font-display: swap;
 }
-
-.hover-italic:hover {
-  font-style: italic;
-  transition: font-style 0.1s ease;
-}
-
-}

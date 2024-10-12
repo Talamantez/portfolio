@@ -68,7 +68,7 @@ export default function ConsciousRobotMarketing() {
     return (
         <div class="bg-gray-100 font-sans">
             <header
-                class={`bg-purple-600 text-white p-4 transition-all duration-1000 ${
+                class={`bg-purple-600 text-white p-4 ${
                     isHeaderHovered ? "italic" : ""
                 }`}
                 onMouseEnter={() => setIsHeaderHovered(true)}
