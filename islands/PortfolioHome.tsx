@@ -126,7 +126,7 @@ export default function ConsciousRobotMarketing() {
                         deliver a fast, secure web app.
                     </p>
                     <p class="text-base md:text-lg mb-4">
-                        Let's get the gears moving on your idea!
+                        Let's get the gears turning on your idea!
                     </p>
                     <p class="text-base md:text-lg mb-4 font-bold">
                         Our Process:
