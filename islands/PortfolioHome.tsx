@@ -98,7 +98,7 @@ export default function ConsciousRobotMarketing() {
             <main class="container mx-auto px-4 py-8">
                 <section id="hero" class="text-center">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Apps for Nonprofits and Pro-social Companies
+                        Web Apps for Nonprofits and Pro-social Companies
                     </h2>
                     <p class="text-lg md:text-xl mb-8">
                         Custom apps on your budget
@@ -122,7 +122,7 @@ export default function ConsciousRobotMarketing() {
                         but don't know where to start?
                     </p>
                     <p class="text-base md:text-lg mb-4">
-                        Enter Conscious Robot! We'll work within your budget to
+                        Wake your idea up with Conscious Robot! We'll work within your budget to
                         deliver a fast, secure web app.
                     </p>
                     <p class="text-base md:text-lg mb-4">
@@ -196,6 +196,17 @@ export default function ConsciousRobotMarketing() {
                     </h2>
 
                     <div class="space-y-6">
+                        
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold mb-2">
+                                Enterprise Experience
+                            </h3>
+                            <p class="mb-4">
+                                Let's even the playing field! Corporations have had to solve problems at scale.  I'll bring my lessons learned to make sure your app is beautifully designed as well as secure and reliable.
+                            </p>
+                            <p>
+                            </p>
+                        </div>
                         <div class="bg-white p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-bold mb-2">
                                 Sliding Scale Pricing
@@ -209,7 +220,7 @@ export default function ConsciousRobotMarketing() {
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-bold mb-2">
-                                Private
+                                Privacy First
                             </h3>
                             <p class="mb-4">
                                 Unless explicitly required by your nonprofit, we
@@ -222,23 +233,10 @@ export default function ConsciousRobotMarketing() {
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-bold mb-2">
-                                Available
+                                Reliable
                             </h3>
                             <p>
-                                Enhance reliability and speed with our
-                                edge-first approach, ensuring your services are
-                                always available and responsive, even under high
-                                demand.
-                            </p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-xl font-bold mb-2">
-                                Dynamic
-                            </h3>
-                            <p>
-                                We use push to Github to deploy your updates
-                                instantly. No more waiting for updates to go
-                                live.
+                                Ensure the global availability of your app even under high demand with our edge-first deployment.
                             </p>
                         </div>
                     </div>
