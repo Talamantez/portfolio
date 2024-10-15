@@ -123,7 +123,7 @@ export default function ConsciousRobotMarketing() {
                     </p>
                     <p class="text-base md:text-lg mb-4">
                         Enter Conscious Robot! We'll work within your budget to
-                        deliver a fast, secure web app in no time.
+                        deliver a fast, secure web app.
                     </p>
                     <p class="text-base md:text-lg mb-4">
                         Let's get the gears moving on your idea!
