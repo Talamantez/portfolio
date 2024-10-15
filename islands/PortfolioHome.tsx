@@ -122,8 +122,8 @@ export default function ConsciousRobotMarketing() {
                         but don't know where to start?
                     </p>
                     <p class="text-base md:text-lg mb-4">
-                        Wake your idea up with Conscious Robot! We'll work within your budget to
-                        deliver a fast, secure web app.
+                        Wake your idea up with Conscious Robot! We'll work
+                        within your budget to deliver a fast, secure web app.
                     </p>
                     <p class="text-base md:text-lg mb-4">
                         Let's get the gears turning on your idea!
@@ -196,13 +196,15 @@ export default function ConsciousRobotMarketing() {
                     </h2>
 
                     <div class="space-y-6">
-                        
-                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-bold mb-2">
                                 Enterprise Experience
                             </h3>
                             <p class="mb-4">
-                                Let's even the playing field! Corporations have had to solve problems at scale.  I'll bring my lessons learned to make sure your app is beautifully designed as well as secure and reliable.
+                                Corporations have had to solve problems at
+                                scale. I'll bring my lessons learned to make
+                                sure your app is beautifully designed as well as
+                                secure and reliable.
                             </p>
                             <p>
                             </p>
@@ -212,8 +214,8 @@ export default function ConsciousRobotMarketing() {
                                 Sliding Scale Pricing
                             </h3>
                             <p class="mb-4">
-                                We offer flexible pricing to set you up on
-                                budget.
+                                Let's even the playing field! We offer flexible
+                                pricing to set you up on budget.
                             </p>
                             <p>
                             </p>
@@ -236,7 +238,9 @@ export default function ConsciousRobotMarketing() {
                                 Reliable
                             </h3>
                             <p>
-                                Ensure the global availability of your app even under high demand with our edge-first deployment.
+                                Ensure the global availability of your app even
+                                under high demand with our edge-first
+                                deployment.
                             </p>
                         </div>
                     </div>
