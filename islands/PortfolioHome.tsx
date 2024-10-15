@@ -225,8 +225,7 @@ export default function ConsciousRobotMarketing() {
                                 Privacy First
                             </h3>
                             <p class="mb-4">
-                                Unless explicitly required by your nonprofit, we
-                                don't collect, track, or store any user data.
+                                We don't collect, track, or store any user data.
                                 Your privacy and that of your users are our top
                                 priority.
                             </p>
