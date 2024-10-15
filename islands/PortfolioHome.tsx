@@ -98,11 +98,10 @@ export default function ConsciousRobotMarketing() {
             <main class="container mx-auto px-4 py-8">
                 <section id="hero" class="text-center">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Empowering Nonprofits with Smart Web Options
+                        Apps for Nonprofits and Pro-social Companies
                     </h2>
                     <p class="text-lg md:text-xl mb-8">
-                        Amplify your impact with secure, reliable, and
-                        cost-effective technology!
+                        Custom apps on your budget
                     </p>
                     <a
                         href="#contact"
@@ -119,39 +118,61 @@ export default function ConsciousRobotMarketing() {
                         Greetings Humanoid!
                     </h2>
                     <p class="text-base md:text-lg mb-4">
-                        I'm Robert, the Conscious Robot! I'm here to get you
-                        robust web solutions and those right quickly!
+                        Do you have an idea for an app that could help your org
+                        but don't know where to start?
                     </p>
-                </section>
-
-                <section id="services" class="my-12">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-6">
-                        Services
-                    </h2>
+                    <p class="text-base md:text-lg mb-4">
+                        Enter Conscious Robot! We'll work within your budget to
+                        deliver a fast, secure web app in no time.
+                    </p>
+                    <p class="text-base md:text-lg mb-4">
+                        Let's get the gears moving on your idea!
+                    </p>
+                    <p class="text-base md:text-lg mb-4 font-bold">
+                        Our Process:
+                    </p>
                     <div class="space-y-6">
                         <div class="bg-white p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-bold mb-2">
-                                Outreach
+                                Step 1: Discovery
                             </h3>
                             <p class="mb-4">
-                                Let's get your message out there! We'll help you
-                                create and manage campaigns that drive clicks
-                                and contributions.
-                            </p>
-                            <p>
+                                We'll meet to identify your specific needs and
+                                goals.
                             </p>
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-bold mb-2">
-                                Apps
+                                Step 2: Design
                             </h3>
-                            <p>
-                                Your idea could make a difference. We'll build a
-                                solution that makes it happen.
+                            <p class="mb-4">
+                                We'll meet with you to talk color themes,
+                                typography and branding, then deliver you
+                                detailed design options for the key parts of
+                                your app.
+                            </p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold mb-2">
+                                Step 2: Development
+                            </h3>
+                            <p class="mb-4">
+                                It's time to craft your idea! We'll breathe life
+                                into your designs and keep you updated every
+                                step of the way.
+                            </p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold mb-2">
+                                Step 3: Deployment
+                            </h3>
+                            <p class="mb-4">
+                                We'll get your app live online!
                             </p>
                         </div>
                     </div>
                 </section>
+
                 <section
                     id="cta"
                     class="bg-purple-100 p-6 md:p-8 rounded-lg my-12 text-center"
@@ -160,9 +181,7 @@ export default function ConsciousRobotMarketing() {
                         Ready to Supercharge Your Nonprofit?
                     </h2>
                     <p class="text-lg md:text-xl mb-6">
-                        Let's work together to create innovative tech solutions
-                        that amplify your impact and secure your mission's
-                        future!
+                        Let's build that app!
                     </p>
                     <a
                         href="#contact"
