@@ -154,7 +154,7 @@ export default function ConsciousRobotMarketing() {
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-bold mb-2">
-                                Step 2: Develop
+                                Step 3: Develop
                             </h3>
                             <p class="mb-4">
                                 It's time to craft your idea! We'll breathe life
@@ -164,7 +164,7 @@ export default function ConsciousRobotMarketing() {
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-bold mb-2">
-                                Step 3: Deploy
+                                Step 4: Deploy
                             </h3>
                             <p class="mb-4">
                                 We'll get your app live online!
