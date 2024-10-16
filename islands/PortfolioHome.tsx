@@ -134,7 +134,7 @@ export default function ConsciousRobotMarketing() {
                     <div class="space-y-6">
                         <div class="bg-white p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-bold mb-2">
-                                Step 1: Discovery
+                                Step 1: Discover
                             </h3>
                             <p class="mb-4">
                                 We'll meet to identify your specific needs and
@@ -146,15 +146,15 @@ export default function ConsciousRobotMarketing() {
                                 Step 2: Design
                             </h3>
                             <p class="mb-4">
-                                We'll meet with you to talk color themes,
-                                typography and branding, then deliver you
+                                We'll meet with you to discuss color themes,
+                                typography and branding then deliver you
                                 detailed design options for the key parts of
                                 your app.
                             </p>
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-bold mb-2">
-                                Step 2: Development
+                                Step 2: Develop
                             </h3>
                             <p class="mb-4">
                                 It's time to craft your idea! We'll breathe life
@@ -164,7 +164,7 @@ export default function ConsciousRobotMarketing() {
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-bold mb-2">
-                                Step 3: Deployment
+                                Step 3: Deploy
                             </h3>
                             <p class="mb-4">
                                 We'll get your app live online!
