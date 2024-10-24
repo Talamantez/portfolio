@@ -4,8 +4,10 @@
 
 import * as $_app from "./routes/_app.tsx";
 import * as $_middleware from "./routes/_middleware.ts";
+import * as $admin_kv_inspector from "./routes/admin/kv-inspector.tsx";
 import * as $admin_newsletter from "./routes/admin/newsletter.tsx";
 import * as $api_add_test_subscriber from "./routes/api/add-test-subscriber.ts";
+import * as $api_admin_kv_inspect from "./routes/api/admin/kv-inspect.ts";
 import * as $api_blasts from "./routes/api/blasts.ts";
 import * as $api_contact from "./routes/api/contact.ts";
 import * as $api_generate_pdf from "./routes/api/generate-pdf.ts";
@@ -19,6 +21,7 @@ import * as $ChapterControls from "./islands/ChapterControls.tsx";
 import * as $CollapsibleSection from "./islands/CollapsibleSection.tsx";
 import * as $ContentFooter from "./islands/ContentFooter.tsx";
 import * as $HomeContent from "./islands/HomeContent.tsx";
+import * as $KvInspector from "./islands/KvInspector.tsx";
 import * as $LoaderIsland from "./islands/LoaderIsland.tsx";
 import * as $Newsletter from "./islands/Newsletter.tsx";
 import * as $PdfPreview from "./islands/PdfPreview.tsx";
@@ -37,8 +40,10 @@ const manifest = {
   routes: {
     "./routes/_app.tsx": $_app,
     "./routes/_middleware.ts": $_middleware,
+    "./routes/admin/kv-inspector.tsx": $admin_kv_inspector,
     "./routes/admin/newsletter.tsx": $admin_newsletter,
     "./routes/api/add-test-subscriber.ts": $api_add_test_subscriber,
+    "./routes/api/admin/kv-inspect.ts": $api_admin_kv_inspect,
     "./routes/api/blasts.ts": $api_blasts,
     "./routes/api/contact.ts": $api_contact,
     "./routes/api/generate-pdf.ts": $api_generate_pdf,
@@ -54,6 +59,7 @@ const manifest = {
     "./islands/CollapsibleSection.tsx": $CollapsibleSection,
     "./islands/ContentFooter.tsx": $ContentFooter,
     "./islands/HomeContent.tsx": $HomeContent,
+    "./islands/KvInspector.tsx": $KvInspector,
     "./islands/LoaderIsland.tsx": $LoaderIsland,
     "./islands/Newsletter.tsx": $Newsletter,
     "./islands/PdfPreview.tsx": $PdfPreview,

@@ -1,105 +1,81 @@
 // routes/api/subscribers.ts
 import { Handlers } from "$fresh/server.ts";
-import { load } from "https://deno.land/std/dotenv/mod.ts";
-import { create } from "https://deno.land/x/djwt@v3.0.1/mod.ts";
-
-interface Subscriber {
-  email: string;
-  firstName?: string;
-  lastName?: string;
-  createdAt: Date;
-  status: "active" | "unsubscribed";
-}
-
-// Declare kv variable with explicit Deno.Kv type
-let kv: Deno.Kv | null = null;
-
-try {
-  kv = await Deno.openKv("./subscribers.db");
-} catch (error) {
-  console.error("Failed to open KV store:", error);
-  throw error;
-}
-
-const JWT_SECRET = Deno.env.get("JWT_SECRET") || crypto.randomUUID();
 
 export const handler: Handlers = {
-  async POST(req: Request) {
-    if (!kv) throw new Error("KV store not initialized");
-
+  async POST(req) {
+    // Open KV with default configuration only
+    const kv = await Deno.openKv();
+    
     try {
       const body = await req.json();
       const { email, firstName, lastName } = body;
-
-      if (!email || !email.includes("@")) {
-        return new Response(JSON.stringify({ error: "Invalid email" }), {
+      
+      if (!email || !firstName || !lastName) {
+        return new Response(JSON.stringify({
+          error: "Missing required fields"
+        }), {
           status: 400,
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json" }
         });
       }
 
-      const subscriber: Subscriber = {
+      // Use the KV store with simple key structure
+      const key = ["subscribers", email];
+      const existing = await kv.get(key);
+      
+      if (existing.value) {
+        return new Response(JSON.stringify({
+          error: "Email already subscribed"
+        }), {
+          status: 400,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+
+      // Store the subscriber
+      await kv.set(key, {
         email,
         firstName,
         lastName,
-        createdAt: new Date(),
         status: "active",
-      };
+        createdAt: new Date().toISOString()
+      });
 
-      // Use the non-null assertion since we checked kv above
-      const result = await kv.atomic()
-        .set(["subscribers", email], subscriber)
-        .commit();
-
-      if (!result.ok) {
-        throw new Error("Failed to save subscriber");
-      }
-
-      if (Deno.env.get("RESEND_API_KEY")) {
-        await fetch("https://api.resend.com/audiences/your-audience-id/members", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${Deno.env.get("RESEND_API_KEY")}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email,
-            first_name: firstName,
-            last_name: lastName,
-          }),
-        });
-      }
-
-      return new Response(JSON.stringify({ success: true }), {
-        headers: { "Content-Type": "application/json" },
+      return new Response(JSON.stringify({
+        message: "Subscription successful"
+      }), {
+        headers: { "Content-Type": "application/json" }
       });
     } catch (error) {
-      return new Response(JSON.stringify({ error: error.message }), {
+      console.error("Subscription error:", error);
+      return new Response(JSON.stringify({
+        error: "Failed to process subscription"
+      }), {
         status: 500,
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" }
       });
+    } finally {
+      await kv.close();
     }
   },
 
-  async GET(_req: Request) {
-    if (!kv) throw new Error("KV store not initialized");
-
+  async GET(req) {
+    const kv = await Deno.openKv();
     try {
-      const subscribers: Subscriber[] = [];
-      const iter = kv.list<Subscriber>({ prefix: ["subscribers"] });
+      const subscribers = [];
+      const entries = kv.list({ prefix: ["subscribers"] });
       
-      for await (const entry of iter) {
+      for await (const entry of entries) {
         subscribers.push(entry.value);
       }
-      
-      return new Response(JSON.stringify(subscribers), {
-        headers: { "Content-Type": "application/json" },
+
+      return new Response(JSON.stringify({
+        subscribers
+      }), {
+        headers: { "Content-Type": "application/json" }
       });
-    } catch (error) {
-      return new Response(JSON.stringify({ error: error.message }), {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      });
+    } finally {
+      await kv.close();
     }
-  },
+  }
 };
