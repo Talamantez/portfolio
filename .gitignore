@@ -4,3 +4,9 @@ _fresh/
 fresh.gen.ts
 deno.lock
 .vscode
+
+# Generated kv files
+*.db*
+
+# VS code
+*.vscode

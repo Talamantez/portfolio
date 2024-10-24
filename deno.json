@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "start": "deno test -A ./test/*.test.ts && deno run -A --watch=static/,routes/ dev.ts",
+    "start": "deno run --watch=static/,routes/ --unstable --allow-env --allow-read --allow-write --allow-run --allow-import --allow-net dev.ts",
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
     "test": "deno test -A ./test/*.test.ts"
@@ -10,6 +10,7 @@
     "jsxImportSource": "preact",
     "lib": ["dom", "dom.iterable", "dom.asynciterable", "deno.ns"]
   },
+  "unstable": ["kv"],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.2/",
     "preact": "https://esm.sh/preact@10.22.0",
