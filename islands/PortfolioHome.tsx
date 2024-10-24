@@ -1,11 +1,7 @@
 import { useState } from "preact/hooks";
 import ConsciousRobotLogo from "../components/ConsciousRobotLogo.tsx";
-import ItalicLightningIcon from "../components/ItalicLightningIcon.tsx";
 import HoverLightningIcon from "../components/HoverLightningIcon.tsx";
 import SubscribeForm from "./SubscribeForm.tsx"
-
-const svgString = ItalicLightningIcon({ width: 50, height: 50 });
-console.log(svgString);
 
 export default function ConsciousRobotMarketing() {
     const [isHeaderHovered, setIsHeaderHovered] = useState(false);

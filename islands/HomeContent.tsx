@@ -397,14 +397,14 @@ export default function HomeContent() {
       });
       if (response.ok) {
         const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
+        const url = globalThis.URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.style.display = "none";
         a.href = url;
         a.download = "resource_roadmap.pdf";
         document.body.appendChild(a);
         a.click();
-        window.URL.revokeObjectURL(url);
+        globalThis.URL.revokeObjectURL(url);
       } else {
         console.error("Failed to generate PDF");
       }

@@ -55,7 +55,7 @@ export const handler: Handlers = {
           try {
             const response = await resend.emails.send({
               from: "onboarding@resend.dev", // Using Resend's default domain
-              reply_to: "robert@conscious-robot.com",
+              replyTo: "robert@conscious-robot.com",
               to: subscriber.email,
               subject,
               html: `
