@@ -9,7 +9,6 @@ import manifest from "./fresh.gen.ts";
 import twindPlugin from "$fresh/plugins/twind.ts";
 import twindConfig from "./twind.config.ts";
 import dev from "$fresh/dev.ts";
-import { load } from "https://deno.land/std/dotenv/mod.ts";
-await load({ export: true });
+import "jsr:@std/dotenv/load";
 await dev(import.meta.url, "./main.ts");
 await start(manifest, { plugins: [twindPlugin(twindConfig)] });
