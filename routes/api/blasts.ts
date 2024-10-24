@@ -75,8 +75,8 @@ export const handler: Handlers = {
           console.log(`[Email Blast] Sending to ${subscriber.email}`);
           
           const response = await resend.emails.send({
-            // from: "Tester <onboarding@resend.dev>",
-            from: "Robert Peng <robert@conscious-robot.com>",
+            from: "Tester <onboarding@resend.dev>",
+            // from: "Robert Peng <robert@conscious-robot.com>",
             replyTo: "robert@conscious-robot.com",
             to: subscriber.email,
             subject,

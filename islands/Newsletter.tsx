@@ -2,6 +2,7 @@
 import { useState } from "preact/hooks";
 
 export default function Newsletter() {
+  console.log('hi')
   const [subject, setSubject] = useState("");
   const [content, setContent] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
