@@ -4,7 +4,7 @@ import { Handlers } from "$fresh/server.ts";
 export const handler: Handlers = {
   async POST(req) {
     // Open KV with default configuration only
-    const kv = await Deno.openKv();
+    const kv = await Deno.openKv("https://api.deno.com/databases/196b5be1-a3a6-4627-8e30-18092d21c9a1/connect");
     
     try {
       const body = await req.json();
