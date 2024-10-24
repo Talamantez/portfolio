@@ -12,7 +12,7 @@ interface Subscriber {
 export const handler: Handlers = {
   async POST(req: Request) {
     const kv = await Deno.openKv();
-    let resend: Resend | null = null;
+    let resend: Resend;
 
     try {
       // Validate request body
@@ -54,7 +54,7 @@ export const handler: Handlers = {
         subscribers.map(async (subscriber) => {
           try {
             const response = await resend.emails.send({
-              from: "onboarding@resend.dev", // Using Resend's default domain
+              from: "robert@conscious-robot.com",
               replyTo: "robert@conscious-robot.com",
               to: subscriber.email,
               subject,
