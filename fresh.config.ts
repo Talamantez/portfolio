@@ -1,18 +1,28 @@
+// fresh.config.ts
 import { defineConfig } from "$fresh/server.ts";
-import twindPlugin from "$fresh/plugins/twind.ts";
-import twindConfig from "./twind.config.ts";
-import { Kv } from "kv";
+import { State, handler as authHandler } from "./middleware/auth.ts";
 
-export default defineConfig({
-  plugins: [twindPlugin(twindConfig)],
-  server: {
-    port: 8000
-  },
-  kv: {
-    kv: await Kv.openDefault(),
-  },
-  static: {
-    // This will serve files from the static directory
-    prefix: "/",
-  },
+export default defineConfig<State>({
+  plugins: [
+    {
+      name: "auth",
+      middlewares: [
+        {
+          path: "/",
+          middleware: {
+            handler: async (_req, ctx) => {
+              if (!ctx.state.kv) {
+                ctx.state.kv = await Deno.openKv();
+              }
+              return await ctx.next();
+            },
+          },
+        },
+        {
+          path: "/",
+          middleware: authHandler,
+        },
+      ],
+    },
+  ],
 });

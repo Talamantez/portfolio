@@ -1,6 +1,11 @@
-import { PageProps } from "$fresh/server.ts";
+// routes/_app.tsx
+import { AppProps } from "$fresh/server.ts";
 
-export default function App({ Component }: PageProps) {
+interface State {
+  kv?: Deno.Kv;
+}
+
+export default function App({ Component }: AppProps<unknown, State>) {
   return (
     <html>
       <head>
