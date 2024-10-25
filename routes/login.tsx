@@ -10,7 +10,9 @@ export const handler: Handlers = {
       const username = form.get("username")?.toString();
       const password = form.get("password")?.toString();
       const redirect = form.get("redirect")?.toString() ||
-        "/admin/kv-inspector";
+        "/";
+
+        console.log("BOOOOOOOOO")
 
       console.log("[Login] Processing login for:", username);
       console.log("[Login] Redirect target:", redirect);
@@ -37,16 +39,16 @@ export const handler: Handlers = {
         }
       }
 
-      if (!userFound) {
-        return new Response("", {
-          status: 303,
-          headers: {
-            Location: `/login?error=invalid&redirect=${
-              encodeURIComponent(redirect)
-            }`,
-          },
-        });
-      }
+      // if (!userFound) {
+      //   return new Response("", {
+      //     status: 303,
+      //     headers: {
+      //       Location: `/login?error=invalid&redirect=${
+      //         encodeURIComponent(redirect)
+      //       }`,
+      //     },
+      //   });
+      // }
 
       // Hash and compare password
       const hashedPassword = await hashPassword(password);
@@ -104,7 +106,7 @@ export const handler: Handlers = {
 // Page component
 export default function LoginPage(props: PageProps) {
   const searchParams = new URLSearchParams(props.url.search);
-  const redirect = searchParams.get('redirect') || '/admin/kv-inspect';
+  const redirect = searchParams.get('redirect');
   const error = searchParams.get('error');
 
   return (

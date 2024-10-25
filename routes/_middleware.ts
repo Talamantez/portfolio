@@ -28,6 +28,8 @@ export async function handler(
   ctx: FreshContext<State>,
 ): Promise<Response> {
   try {
+  console.log("bananas")
+
     // Log request information
     // console.log(`[Middleware] Request URL: ${req.url}`);
     // console.log(`[Middleware] Destination: ${ctx.destination}`);

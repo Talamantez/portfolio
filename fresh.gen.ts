@@ -4,19 +4,26 @@
 
 import * as $_app from "./routes/_app.tsx";
 import * as $_middleware from "./routes/_middleware.ts";
+import * as $admin_dashboard from "./routes/admin/dashboard.tsx";
 import * as $admin_kv_inspector from "./routes/admin/kv-inspector.tsx";
 import * as $admin_newsletter from "./routes/admin/newsletter.tsx";
 import * as $api_add_test_subscriber from "./routes/api/add-test-subscriber.ts";
-import * as $api_admin_kv_inspect from "./routes/api/admin/kv-inspect.ts";
+import * as $api_admin_middleware from "./routes/api/admin/_middleware.ts";
 import * as $api_blasts from "./routes/api/blasts.ts";
 import * as $api_contact from "./routes/api/contact.ts";
+import * as $api_debug_session from "./routes/api/debug-session.ts";
 import * as $api_generate_pdf from "./routes/api/generate-pdf.ts";
 import * as $api_printAllChapters from "./routes/api/printAllChapters.ts";
+import * as $api_setup from "./routes/api/setup.ts";
 import * as $api_subscribers from "./routes/api/subscribers.ts";
 import * as $api_test_env from "./routes/api/test-env.ts";
 import * as $api_upload from "./routes/api/upload.ts";
 import * as $index from "./routes/index.tsx";
+import * as $login from "./routes/login.tsx";
+import * as $setup from "./routes/setup.tsx";
+import * as $unauthorized from "./routes/unauthorized.tsx";
 import * as $AddChapter from "./islands/AddChapter.tsx";
+import * as $AdminDashboard from "./islands/AdminDashboard.tsx";
 import * as $ChapterControls from "./islands/ChapterControls.tsx";
 import * as $CollapsibleSection from "./islands/CollapsibleSection.tsx";
 import * as $ContentFooter from "./islands/ContentFooter.tsx";
@@ -40,21 +47,28 @@ const manifest = {
   routes: {
     "./routes/_app.tsx": $_app,
     "./routes/_middleware.ts": $_middleware,
+    "./routes/admin/dashboard.tsx": $admin_dashboard,
     "./routes/admin/kv-inspector.tsx": $admin_kv_inspector,
     "./routes/admin/newsletter.tsx": $admin_newsletter,
     "./routes/api/add-test-subscriber.ts": $api_add_test_subscriber,
-    "./routes/api/admin/kv-inspect.ts": $api_admin_kv_inspect,
+    "./routes/api/admin/_middleware.ts": $api_admin_middleware,
     "./routes/api/blasts.ts": $api_blasts,
     "./routes/api/contact.ts": $api_contact,
+    "./routes/api/debug-session.ts": $api_debug_session,
     "./routes/api/generate-pdf.ts": $api_generate_pdf,
     "./routes/api/printAllChapters.ts": $api_printAllChapters,
+    "./routes/api/setup.ts": $api_setup,
     "./routes/api/subscribers.ts": $api_subscribers,
     "./routes/api/test-env.ts": $api_test_env,
     "./routes/api/upload.ts": $api_upload,
     "./routes/index.tsx": $index,
+    "./routes/login.tsx": $login,
+    "./routes/setup.tsx": $setup,
+    "./routes/unauthorized.tsx": $unauthorized,
   },
   islands: {
     "./islands/AddChapter.tsx": $AddChapter,
+    "./islands/AdminDashboard.tsx": $AdminDashboard,
     "./islands/ChapterControls.tsx": $ChapterControls,
     "./islands/CollapsibleSection.tsx": $CollapsibleSection,
     "./islands/ContentFooter.tsx": $ContentFooter,
