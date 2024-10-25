@@ -72,7 +72,8 @@ export async function handler(
     return new Response(null, {
       status: 302,
       headers: {
-        Location: `/login?redirect=${encodeURIComponent(url.pathname)}`,
+        // Location: `/login?redirect=${encodeURIComponent(url.pathname)}`,
+        Location: `/admin`,
         "Set-Cookie":
           "sessionId=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT",
       },

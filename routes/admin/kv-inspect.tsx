@@ -1,6 +1,6 @@
 // routes/admin/kv-inspector.tsx
 import { PageProps } from "$fresh/server.ts";
-import KvInspect from "../../islands/KvInspector.tsx";
+import KvInspect from "../../islands/KvInspect.tsx";
 
 interface PageData {
     session: {

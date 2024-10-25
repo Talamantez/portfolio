@@ -2,8 +2,12 @@
 import { PageProps } from "$fresh/server.ts";
 import AdminDashboard from "../../islands/AdminDashboard.tsx";
 
-export default function AdminPage(props: PageProps) {
+export default function index(props: PageProps) {
+  alert('bo!')
   return (
+    <>
+    Hi!
     <AdminDashboard />
+    </>
   );
 }

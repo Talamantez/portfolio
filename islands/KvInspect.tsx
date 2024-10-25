@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 
-export default function KVInspector() {
+export default function KvInspect() {
   const [data, setData] = useState(null);
   const [prefix, setPrefix] = useState("subscribers");
   const [token, setToken] = useState("");

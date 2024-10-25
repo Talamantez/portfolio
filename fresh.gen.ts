@@ -4,8 +4,8 @@
 
 import * as $_app from "./routes/_app.tsx";
 import * as $_middleware from "./routes/_middleware.ts";
-import * as $admin_dashboard from "./routes/admin/dashboard.tsx";
-import * as $admin_kv_inspector from "./routes/admin/kv-inspector.tsx";
+import * as $admin_index from "./routes/admin/index.tsx";
+import * as $admin_kv_inspect from "./routes/admin/kv-inspect.tsx";
 import * as $admin_newsletter from "./routes/admin/newsletter.tsx";
 import * as $api_add_test_subscriber from "./routes/api/add-test-subscriber.ts";
 import * as $api_admin_middleware from "./routes/api/admin/_middleware.ts";
@@ -28,7 +28,7 @@ import * as $ChapterControls from "./islands/ChapterControls.tsx";
 import * as $CollapsibleSection from "./islands/CollapsibleSection.tsx";
 import * as $ContentFooter from "./islands/ContentFooter.tsx";
 import * as $HomeContent from "./islands/HomeContent.tsx";
-import * as $KvInspector from "./islands/KvInspector.tsx";
+import * as $KvInspect from "./islands/KvInspect.tsx";
 import * as $LoaderIsland from "./islands/LoaderIsland.tsx";
 import * as $Newsletter from "./islands/Newsletter.tsx";
 import * as $PdfPreview from "./islands/PdfPreview.tsx";
@@ -47,8 +47,8 @@ const manifest = {
   routes: {
     "./routes/_app.tsx": $_app,
     "./routes/_middleware.ts": $_middleware,
-    "./routes/admin/dashboard.tsx": $admin_dashboard,
-    "./routes/admin/kv-inspector.tsx": $admin_kv_inspector,
+    "./routes/admin/index.tsx": $admin_index,
+    "./routes/admin/kv-inspect.tsx": $admin_kv_inspect,
     "./routes/admin/newsletter.tsx": $admin_newsletter,
     "./routes/api/add-test-subscriber.ts": $api_add_test_subscriber,
     "./routes/api/admin/_middleware.ts": $api_admin_middleware,
@@ -73,7 +73,7 @@ const manifest = {
     "./islands/CollapsibleSection.tsx": $CollapsibleSection,
     "./islands/ContentFooter.tsx": $ContentFooter,
     "./islands/HomeContent.tsx": $HomeContent,
-    "./islands/KvInspector.tsx": $KvInspector,
+    "./islands/KvInspect.tsx": $KvInspect,
     "./islands/LoaderIsland.tsx": $LoaderIsland,
     "./islands/Newsletter.tsx": $Newsletter,
     "./islands/PdfPreview.tsx": $PdfPreview,

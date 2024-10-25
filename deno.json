@@ -2,7 +2,8 @@
   "tasks": {
     "start": "deno run -A --unstable-kv --watch=static/,routes/ dev.ts",
     "build": "deno run -A dev.ts build",
-    "preview": "deno run -A main.ts"
+    "preview": "deno run -A main.ts",
+    "dev": "$env:DENO_ENV='development';deno task start"
   },
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.2/",

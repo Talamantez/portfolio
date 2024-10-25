@@ -9,8 +9,7 @@ export const handler: Handlers = {
       const form = await req.formData();
       const username = form.get("username")?.toString();
       const password = form.get("password")?.toString();
-      const redirect = form.get("redirect")?.toString() ||
-        "/";
+      const redirect = "/admin";
 
         console.log("BOOOOOOOOO")
 
@@ -39,16 +38,16 @@ export const handler: Handlers = {
         }
       }
 
-      // if (!userFound) {
-      //   return new Response("", {
-      //     status: 303,
-      //     headers: {
-      //       Location: `/login?error=invalid&redirect=${
-      //         encodeURIComponent(redirect)
-      //       }`,
-      //     },
-      //   });
-      // }
+      if (!userFound) {
+        return new Response("", {
+          status: 303,
+          headers: {
+            Location: `/login?error=invalid&redirect=${
+              encodeURIComponent(redirect)
+            }`,
+          },
+        });
+      }
 
       // Hash and compare password
       const hashedPassword = await hashPassword(password);
