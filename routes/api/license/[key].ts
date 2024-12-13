@@ -1,6 +1,5 @@
 // routes/api/license/[key].ts
 import { Handlers } from "$fresh/server.ts";
-import { Kv } from "kv";
 
 interface LicenseData {
   key: string;
@@ -22,8 +21,8 @@ export const handler: Handlers = {
     const key = url.pathname.split("/").pop();
 
     if (!key) {
-      return new Response(JSON.stringify({ 
-        error: "No license key provided" 
+      return new Response(JSON.stringify({
+        error: "No license key provided"
       }), {
         status: 400,
         headers: { "Content-Type": "application/json" }
@@ -36,7 +35,7 @@ export const handler: Handlers = {
     try {
       // Get license data
       const licenseEntry = await kv.get<LicenseData>(["licenses", key]);
-      
+
       if (!licenseEntry.value) {
         return new Response(JSON.stringify({
           error: "Invalid license key"
@@ -69,8 +68,8 @@ export const handler: Handlers = {
 
     } catch (error) {
       console.error('License validation error:', error);
-      return new Response(JSON.stringify({ 
-        error: "Internal server error" 
+      return new Response(JSON.stringify({
+        error: "Internal server error"
       }), {
         status: 500,
         headers: { "Content-Type": "application/json" }
@@ -81,21 +80,31 @@ export const handler: Handlers = {
   },
 
   async POST(req, _ctx) {
-    const url = new URL(req.url);
-    const key = url.pathname.split("/").pop();
-    
-    if (!key) {
-      return new Response(JSON.stringify({ 
-        error: "No license key provided" 
-      }), { 
-        status: 400,
-        headers: { "Content-Type": "application/json" }
-      });
-    }
-
     try {
+      const url = new URL(req.url);
+      const key = url.pathname.split("/").pop();
+
+      if (!key) {
+        return new Response(JSON.stringify({
+          error: "No license key provided"
+        }), {
+          status: 400,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+
       const body = await req.json();
       const { tokens = 0 } = body;
+
+      // Validate tokens is a number
+      if (typeof tokens !== 'number' || isNaN(tokens)) {
+        return new Response(JSON.stringify({
+          error: "Invalid token count - must be a number"
+        }), {
+          status: 500,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
 
       const kv = await Deno.openKv();
       const licenseEntry = await kv.get<LicenseData>(["licenses", key]);
@@ -144,8 +153,8 @@ export const handler: Handlers = {
 
     } catch (error) {
       console.error('Usage update error:', error);
-      return new Response(JSON.stringify({ 
-        error: "Internal server error" 
+      return new Response(JSON.stringify({
+        error: "Internal server error"
       }), {
         status: 500,
         headers: { "Content-Type": "application/json" }
