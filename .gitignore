@@ -1,4 +1,6 @@
 .env
+venv
+
 # Fresh build directory
 _fresh/
 deno.lock
@@ -9,3 +11,4 @@ deno.lock
 
 # VS code
 *.vscode
+

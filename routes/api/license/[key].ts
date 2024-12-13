@@ -1,0 +1,155 @@
+// routes/api/license/[key].ts
+import { Handlers } from "$fresh/server.ts";
+import { Kv } from "kv";
+
+interface LicenseData {
+  key: string;
+  tier: string;
+  dailyLimit: number;
+  monthlyLimit: number;
+  features: string[];
+  created: string;
+  lastChecked: string;
+  usageData: {
+    daily: number;
+    monthly: number;
+  };
+}
+
+export const handler: Handlers = {
+  async GET(req, _ctx) {
+    const url = new URL(req.url);
+    const key = url.pathname.split("/").pop();
+
+    if (!key) {
+      return new Response(JSON.stringify({ 
+        error: "No license key provided" 
+      }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+
+    // Initialize KV connection
+    const kv = await Deno.openKv();
+
+    try {
+      // Get license data
+      const licenseEntry = await kv.get<LicenseData>(["licenses", key]);
+      
+      if (!licenseEntry.value) {
+        return new Response(JSON.stringify({
+          error: "Invalid license key"
+        }), {
+          status: 404,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+
+      // Update last checked timestamp
+      const updatedLicense = {
+        ...licenseEntry.value,
+        lastChecked: new Date().toISOString()
+      };
+
+      await kv.set(["licenses", key], updatedLicense);
+
+      return new Response(JSON.stringify({
+        valid: true,
+        tier: updatedLicense.tier,
+        limits: {
+          daily: updatedLicense.dailyLimit,
+          monthly: updatedLicense.monthlyLimit
+        },
+        usage: updatedLicense.usageData,
+        features: updatedLicense.features
+      }), {
+        headers: { "Content-Type": "application/json" }
+      });
+
+    } catch (error) {
+      console.error('License validation error:', error);
+      return new Response(JSON.stringify({ 
+        error: "Internal server error" 
+      }), {
+        status: 500,
+        headers: { "Content-Type": "application/json" }
+      });
+    } finally {
+      kv.close();
+    }
+  },
+
+  async POST(req, _ctx) {
+    const url = new URL(req.url);
+    const key = url.pathname.split("/").pop();
+    
+    if (!key) {
+      return new Response(JSON.stringify({ 
+        error: "No license key provided" 
+      }), { 
+        status: 400,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+
+    try {
+      const body = await req.json();
+      const { tokens = 0 } = body;
+
+      const kv = await Deno.openKv();
+      const licenseEntry = await kv.get<LicenseData>(["licenses", key]);
+
+      if (!licenseEntry.value) {
+        return new Response(JSON.stringify({
+          error: "Invalid license key"
+        }), {
+          status: 404,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+
+      // Update usage data
+      const now = new Date();
+      const updatedLicense = {
+        ...licenseEntry.value,
+        lastChecked: now.toISOString(),
+        usageData: {
+          daily: licenseEntry.value.usageData.daily + tokens,
+          monthly: licenseEntry.value.usageData.monthly + tokens
+        }
+      };
+
+      // Check if we need to reset counters
+      const lastChecked = new Date(licenseEntry.value.lastChecked);
+      if (lastChecked.getDate() !== now.getDate()) {
+        updatedLicense.usageData.daily = tokens;
+      }
+      if (lastChecked.getMonth() !== now.getMonth()) {
+        updatedLicense.usageData.monthly = tokens;
+      }
+
+      await kv.set(["licenses", key], updatedLicense);
+
+      return new Response(JSON.stringify({
+        success: true,
+        usage: updatedLicense.usageData,
+        limits: {
+          daily: updatedLicense.dailyLimit,
+          monthly: updatedLicense.monthlyLimit
+        }
+      }), {
+        headers: { "Content-Type": "application/json" }
+      });
+
+    } catch (error) {
+      console.error('Usage update error:', error);
+      return new Response(JSON.stringify({ 
+        error: "Internal server error" 
+      }), {
+        status: 500,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+  }
+};
