@@ -80,6 +80,8 @@ export const handler: Handlers = {
   },
 
   async POST(req, _ctx) {
+    // Clean up test data from KV store
+    const kv = await Deno.openKv();
     try {
       const url = new URL(req.url);
       const key = url.pathname.split("/").pop();
@@ -101,25 +103,46 @@ export const handler: Handlers = {
         return new Response(JSON.stringify({
           error: "Invalid token count - must be a number"
         }), {
-          status: 500,
+          status: 400,
           headers: { "Content-Type": "application/json" }
         });
       }
 
       const kv = await Deno.openKv();
       const licenseEntry = await kv.get<LicenseData>(["licenses", key]);
+      const now = new Date();
 
+      // Create new license if it doesn't exist
       if (!licenseEntry.value) {
+        const newLicense: LicenseData = {
+          key,
+          tier: "free",
+          dailyLimit: 1000,
+          monthlyLimit: 10000,
+          features: ["basic_usage"],
+          created: now.toISOString(),
+          lastChecked: now.toISOString(),
+          usageData: {
+            daily: tokens,
+            monthly: tokens
+          }
+        };
+
+        await kv.set(["licenses", key], newLicense);
+
         return new Response(JSON.stringify({
-          error: "Invalid license key"
+          success: true,
+          usage: newLicense.usageData,
+          limits: {
+            daily: newLicense.dailyLimit,
+            monthly: newLicense.monthlyLimit
+          }
         }), {
-          status: 404,
           headers: { "Content-Type": "application/json" }
         });
       }
 
-      // Update usage data
-      const now = new Date();
+      // Update existing license usage data
       const updatedLicense = {
         ...licenseEntry.value,
         lastChecked: now.toISOString(),
@@ -159,6 +182,10 @@ export const handler: Handlers = {
         status: 500,
         headers: { "Content-Type": "application/json" }
       });
+    } finally {
+      if (typeof kv !== 'undefined') {
+        kv.close();
+      }
     }
   }
 };
