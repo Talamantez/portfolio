@@ -29,11 +29,9 @@ export const handler: Handlers = {
       });
     }
 
-    // Initialize KV connection
     const kv = await Deno.openKv();
 
     try {
-      // Get license data
       const licenseEntry = await kv.get<LicenseData>(["licenses", key]);
 
       if (!licenseEntry.value) {
@@ -80,7 +78,6 @@ export const handler: Handlers = {
   },
 
   async POST(req, _ctx) {
-    // Clean up test data from KV store
     const kv = await Deno.openKv();
     try {
       const url = new URL(req.url);
@@ -95,20 +92,19 @@ export const handler: Handlers = {
         });
       }
 
-      const body = await req.json();
-      const { tokens = 0 } = body;
+      const body = await req.json().catch(() => ({}));
+      const { tokens } = body;
 
-      // Validate tokens is a number
-      if (typeof tokens !== 'number' || isNaN(tokens)) {
+      // Validate tokens
+      if (typeof tokens !== 'number' || isNaN(tokens) || tokens < 0) {
         return new Response(JSON.stringify({
-          error: "Invalid token count - must be a number"
+          error: "Invalid token count - must be a positive number"
         }), {
           status: 400,
           headers: { "Content-Type": "application/json" }
         });
       }
 
-      const kv = await Deno.openKv();
       const licenseEntry = await kv.get<LicenseData>(["licenses", key]);
       const now = new Date();
 
@@ -128,6 +124,16 @@ export const handler: Handlers = {
           }
         };
 
+        // Check if initial usage exceeds limits
+        if (tokens > newLicense.dailyLimit || tokens > newLicense.monthlyLimit) {
+          return new Response(JSON.stringify({
+            error: "Usage exceeds license limits"
+          }), {
+            status: 429,
+            headers: { "Content-Type": "application/json" }
+          });
+        }
+
         await kv.set(["licenses", key], newLicense);
 
         return new Response(JSON.stringify({
@@ -142,24 +148,52 @@ export const handler: Handlers = {
         });
       }
 
-      // Update existing license usage data
+      // Calculate new usage
+      let newDailyUsage = licenseEntry.value.usageData.daily;
+      let newMonthlyUsage = licenseEntry.value.usageData.monthly;
+      const lastChecked = new Date(licenseEntry.value.lastChecked);
+
+      // Reset counters if needed
+      if (lastChecked.getDate() !== now.getDate()) {
+        newDailyUsage = tokens;
+      } else {
+        newDailyUsage += tokens;
+      }
+
+      if (lastChecked.getMonth() !== now.getMonth()) {
+        newMonthlyUsage = tokens;
+      } else {
+        newMonthlyUsage += tokens;
+      }
+
+      // Check limits
+      if (newDailyUsage > licenseEntry.value.dailyLimit && licenseEntry.value.dailyLimit !== -1) {
+        return new Response(JSON.stringify({
+          error: "Daily usage limit exceeded"
+        }), {
+          status: 429,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+
+      if (newMonthlyUsage > licenseEntry.value.monthlyLimit && licenseEntry.value.monthlyLimit !== -1) {
+        return new Response(JSON.stringify({
+          error: "Monthly usage limit exceeded"
+        }), {
+          status: 429,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+
+      // Update license with new usage data
       const updatedLicense = {
         ...licenseEntry.value,
         lastChecked: now.toISOString(),
         usageData: {
-          daily: licenseEntry.value.usageData.daily + tokens,
-          monthly: licenseEntry.value.usageData.monthly + tokens
+          daily: newDailyUsage,
+          monthly: newMonthlyUsage
         }
       };
-
-      // Check if we need to reset counters
-      const lastChecked = new Date(licenseEntry.value.lastChecked);
-      if (lastChecked.getDate() !== now.getDate()) {
-        updatedLicense.usageData.daily = tokens;
-      }
-      if (lastChecked.getMonth() !== now.getMonth()) {
-        updatedLicense.usageData.monthly = tokens;
-      }
 
       await kv.set(["licenses", key], updatedLicense);
 
@@ -183,9 +217,7 @@ export const handler: Handlers = {
         headers: { "Content-Type": "application/json" }
       });
     } finally {
-      if (typeof kv !== 'undefined') {
-        kv.close();
-      }
+      kv.close();
     }
   }
 };
