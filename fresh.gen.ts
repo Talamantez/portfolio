@@ -11,6 +11,7 @@ import * as $api_admin_kv_inspect from "./routes/api/admin/kv-inspect.ts";
 import * as $api_blasts from "./routes/api/blasts.ts";
 import * as $api_contact from "./routes/api/contact.ts";
 import * as $api_generate_pdf from "./routes/api/generate-pdf.ts";
+import * as $api_license_key_ from "./routes/api/license/[key].ts";
 import * as $api_printAllChapters from "./routes/api/printAllChapters.ts";
 import * as $api_subscribers from "./routes/api/subscribers.ts";
 import * as $api_test_env from "./routes/api/test-env.ts";
@@ -47,6 +48,7 @@ const manifest = {
     "./routes/api/blasts.ts": $api_blasts,
     "./routes/api/contact.ts": $api_contact,
     "./routes/api/generate-pdf.ts": $api_generate_pdf,
+    "./routes/api/license/[key].ts": $api_license_key_,
     "./routes/api/printAllChapters.ts": $api_printAllChapters,
     "./routes/api/subscribers.ts": $api_subscribers,
     "./routes/api/test-env.ts": $api_test_env,
